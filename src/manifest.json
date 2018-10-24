@@ -1,6 +1,6 @@
 {
-  "name": "GifHub2",
-  "version": "0.1.0",
+  "name": "GifHub",
+  "version": "1.0.0",
   "description": "Markdown-friendly giphys in a jiffy",
   "manifest_version": 2,
   "permissions": ["storage", "declarativeContent"],
