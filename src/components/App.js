@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import GifGrid from './GifGrid';
+import SearchBar from './SearchBar';
 
 class App extends Component {
   state = {
@@ -37,7 +38,6 @@ class App extends Component {
     fetch(`${baseUrl}&q=${this.state.searchTerm}&limit=25&offset=0&rating=R&lang=en`)
     .then(res => res.json())
     .then(({data : gifs}) => {
-      console.log(gifs);
       this.setState({ gifs });
     });
   }
@@ -45,8 +45,11 @@ class App extends Component {
   render() {
     return (
       <React.Fragment>
-        <input type="text" placeholder="Search Giphy..." onChange={ this.handleSearchTermUpdate } />
-        <button onClick={ this.handleSearch }>Find a gif</button>
+        <SearchBar
+          onChange={ this.handleSearchTermUpdate }
+          onSearch={ this.handleSearch }
+          value={ this.state.searchTerm }
+        />
         <GifGrid gifs={ this.state.gifs } />
       </React.Fragment>
     )

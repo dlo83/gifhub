@@ -16,7 +16,6 @@ class Gif extends Component {
     return (
       <li className="gif-container">
         <img src={ gif.images.fixed_width.url } className="gif" onClick={ this.handleImageSelect } />
-        {/* <p>![Giphy]({gif.images.fixed_width.url})</p> */}
       </li>
     )
   }

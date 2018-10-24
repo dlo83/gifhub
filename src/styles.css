@@ -1,8 +1,9 @@
 .popup-container {
   width: 600px;
+  min-height: 400px;
+  margin: 0;
+  padding: 0;
 }
-
-
 
 .gif-grid {
   margin: 0;
@@ -24,4 +25,28 @@
   height: 250px;
   object-fit: cover;
   cursor:pointer;
+}
+
+.searchbar {
+  display: flex;
+  align-items: center;
+  background-color: #24292e;
+  color: white;
+  height: 60px;
+}
+
+.searchbar > * {
+  margin-left: 1rem;
+}
+
+.searchbox {
+  min-height: 30px;
+  padding: 6px 8px;
+  line-height: 20px;
+  vertical-align: middle;
+  border-radius: 3px;
+  background-color: hsla(0,0%,100%,0.125);
+  outline: none;
+  color: white;
+  border-style: none;
 }
