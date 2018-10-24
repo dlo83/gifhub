@@ -18,7 +18,7 @@ simple click, you have the necessary markdown in your clipboard to litter your G
 
 * Clone this repo.
 * `npm install`
-* `npm build`
+* `npm run build`
 * Browse over to `chrome://extensions` in omnibar
 * Click "Load Unpacked"
 * Browse to this cloned repo and select the `dist` directory.
