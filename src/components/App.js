@@ -7,6 +7,25 @@ class App extends Component {
     gifs: [],
   }
 
+  componentDidMount() {
+    this.requestClipboardPermission();
+  }
+
+  requestClipboardPermission = () => {
+    navigator.permissions.query({name:'clipboard-write'}).then(function(result) {
+      if (result.state == 'granted') {
+        console.log(result.state);
+      } else if (result.state == 'prompt') {
+        console.log(result.state);
+      } else if (result.state == 'denied') {
+        console.log(result.state);
+      }
+      result.onchange = function() {
+        console.log(result.state);
+      }
+    });
+  }
+
   handleSearchTermUpdate = ({ target: { value }} ) => {
     this.setState({ searchTerm: value });
   }
