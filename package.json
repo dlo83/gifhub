@@ -4,18 +4,21 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "parcel build src/popup.js -d dist/ -o popup.js --no-cache && cp src/popup.html dist/popup.html && cp src/manifest.json dist/manifest.json && cp src/background.js dist/background.js",
+    "build": "rm -rf dist/ && parcel build src/popup.js -d dist/ -o popup.js --no-cache --no-source-maps --no-minify && cp src/popup.html dist/popup.html && cp src/manifest.json dist/manifest.json && cp src/background.js dist/background.js && cp src/styles.css dist/styles.css",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Dan Lourenço",
   "license": "ISC",
   "devDependencies": {
     "babel-core": "^6.26.3",
+    "babel-plugin-transform-async-to-generator": "^6.24.1",
+    "babel-plugin-transform-runtime": "^6.23.0",
     "babel-preset-env": "^1.7.0",
     "babel-preset-react": "^6.24.1"
   },
   "dependencies": {
     "babel-plugin-transform-class-properties": "^6.24.1",
+    "babel-runtime": "^6.26.0",
     "react": "^16.6.0",
     "react-dom": "^16.6.0"
   }

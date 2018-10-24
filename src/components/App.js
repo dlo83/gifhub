@@ -1,18 +1,35 @@
 import React, { Component } from 'react';
+import GifGrid from './GifGrid';
 
 class App extends Component {
   state = {
-    searchTerm: null
+    searchTerm: null,
+    gifs: [],
   }
 
-  handleSearchTermUpdate = () => {
-    console.log('test');
+  handleSearchTermUpdate = ({ target: { value }} ) => {
+    this.setState({ searchTerm: value });
+  }
+
+  handleSearch = () => {
+    const API_KEY = '6pru14UvLOEhi06VmrSebbDCbTnyS6Ry';
+    const baseUrl = `https://api.giphy.com/v1/gifs/search?api_key=${API_KEY}`;
+
+    fetch(`${baseUrl}&q=${this.state.searchTerm}&limit=25&offset=0&rating=R&lang=en`)
+    .then(res => res.json())
+    .then(({data : gifs}) => {
+      console.log(gifs);
+      this.setState({ gifs });
+    });
   }
 
   render() {
     return (
-      <input type="text" onChange={ this.handleSearchTermUpdate } />
-
+      <React.Fragment>
+        <input type="text" placeholder="Search Giphy..." onChange={ this.handleSearchTermUpdate } />
+        <button onClick={ this.handleSearch }>Find a gif</button>
+        <GifGrid gifs={ this.state.gifs } />
+      </React.Fragment>
     )
   }
 }

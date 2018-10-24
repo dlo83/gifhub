@@ -1,0 +1,26 @@
+.popup-container {
+  width: 600px;
+}
+
+
+
+.gif-grid {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: flex-start;
+}
+
+.gif-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-bottom: 2rem;
+}
+
+.gif {
+  width: 250px;
+  height: 250px;
+  object-fit: cover;
+}
