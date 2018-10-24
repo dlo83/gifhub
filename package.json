@@ -1,0 +1,21 @@
+{
+  "name": "gifhub2",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "parcel build src/popup.js -d dist/ -o popup.js --no-cache && cp src/popup.html dist/popup.html && cp src/manifest.json dist/manifest.json && cp src/background.js dist/background.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Dan Lourenço",
+  "license": "ISC",
+  "devDependencies": {
+    "babel-core": "^6.26.3",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-react": "^6.24.1"
+  },
+  "dependencies": {
+    "react": "^16.6.0",
+    "react-dom": "^16.6.0"
+  }
+}
