@@ -8,7 +8,7 @@ Markdown-friendly gifs for all.
 ![Gif](https://media2.giphy.com/media/pPhyAv5t9V8djyRFJH/200w.gif)
 
 Sometimes you want to throw a gif in GitHub, but it's a pain to have to go to Giphy, find the right image, and then write the Markdown needed
-to inject sweet gif/dank meme into your PR/Issue/Whatever.  This extension does all the heavy lifting and allows you to search for gifs.  With a 
+to inject a sweet gif/dank meme into your PR/Issue/Whatever.  This extension does all the heavy lifting and allows you to search for gifs.  With a 
 simple click, you have the necessary markdown in your clipboard to litter your GitHub with bloated images for lulz!
 
 ## How to Use
