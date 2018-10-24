@@ -1,9 +1,18 @@
 import React, { Component } from 'react';
 
 class App extends Component {
+  state = {
+    searchTerm: null
+  }
+
+  handleSearchTermUpdate = () => {
+    console.log('test');
+  }
+
   render() {
     return (
-      <h1>Hello from React!</h1>
+      <input type="text" onChange={ this.handleSearchTermUpdate } />
+
     )
   }
 }

@@ -15,6 +15,7 @@
     "babel-preset-react": "^6.24.1"
   },
   "dependencies": {
+    "babel-plugin-transform-class-properties": "^6.24.1",
     "react": "^16.6.0",
     "react-dom": "^16.6.0"
   }
