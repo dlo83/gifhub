@@ -14,6 +14,8 @@ simple click, you have the necessary markdown in your clipboard to litter your G
 
 ## How to Use
 
+![Gif](https://media0.giphy.com/media/BouwBuyFhQwlQYBvmG/200w.gif)
+
 * Clone this repo.
 * `npm install`
 * `npm build`
