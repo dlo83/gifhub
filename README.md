@@ -1,7 +1,8 @@
 # GifHub Chrome Extension
 
-![Gif](https://media3.giphy.com/media/hZj44bR9FVI3K/200w.gif)
 Markdown-friendly gifs for all.
+
+![Gif](https://media3.giphy.com/media/hZj44bR9FVI3K/200w.gif)
 
 ## What is this?
 
