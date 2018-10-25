@@ -4,13 +4,24 @@ import Gif from './Gif';
 class GifGrid extends Component {
   render() {
     const { gifs } = this.props;
-    return (
-      <ul className="gif-grid">
+    let dom;
+
+    if (gifs.length) {
+      dom = (
+        <ul className="gif-grid">
         {
           gifs.map(gif => <Gif gif={gif} />)
         }
       </ul>
-    );
+      );
+    } else {
+      dom = (
+        <div className="no-results">
+          <p>No results found. Please enter a new search term!</p>
+        </div>
+      )
+    }
+    return dom;
   }
 }
 
