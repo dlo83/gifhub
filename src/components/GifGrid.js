@@ -3,14 +3,14 @@ import Gif from './Gif';
 
 class GifGrid extends Component {
   render() {
-    const { gifs } = this.props;
+    const { gifs, onCopySuccess, onCopyFailure } = this.props;
     let dom;
 
     if (gifs.length) {
       dom = (
         <ul className="gif-grid">
         {
-          gifs.map(gif => <Gif gif={gif} />)
+          gifs.map(gif => <Gif gif={gif} onCopySuccess={ onCopySuccess } onCopyFailure={ onCopyFailure } />)
         }
       </ul>
       );

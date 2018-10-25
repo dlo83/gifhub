@@ -5,9 +5,9 @@ class Gif extends Component {
     console.log(ev.target.src);
     navigator.clipboard.writeText(`![Gif](${ev.target.src})`)
     .then(() => {
-      alert('Gif copied to clipboard');
+      this.props.onCopySuccess();
     }, () => {
-      alert('Could not copy to clipboard');
+      this.props.onCopyFailure();
     });
   }
 

@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import GifGrid from './GifGrid';
 import SearchBar from './SearchBar';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 class App extends Component {
   state = {
@@ -27,6 +29,13 @@ class App extends Component {
     });
   }
 
+  handleCopySuccess = () => {
+    console.log('handle copy success in App.js called');
+    toast('Gif markdown copied to your clipboard!');
+  }
+
+  handleCopyFailure = () => toast('Dang! Could not copy gif to your clipboard');
+
   handleSearchTermUpdate = ({ target: { value }} ) => {
     this.setState({ searchTerm: value });
   }
@@ -44,14 +53,19 @@ class App extends Component {
 
   render() {
     return (
-      <React.Fragment>
+      <div>
         <SearchBar
           onChange={ this.handleSearchTermUpdate }
           onSearch={ this.handleSearch }
           value={ this.state.searchTerm }
         />
-        <GifGrid gifs={ this.state.gifs } />
-      </React.Fragment>
+        <GifGrid
+          gifs={ this.state.gifs }
+          onCopySuccess={ this.handleCopySuccess }
+          onCopyFailure={ this.handleCopyFailure }
+        />
+        <ToastContainer closeButton={ false } />
+      </div>
     )
   }
 }
