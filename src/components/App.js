@@ -41,6 +41,7 @@ class App extends Component {
   }
 
   handleSearch = () => {
+    // Don't worry -- it's public.  Should probably still move to an .env var anyway.
     const API_KEY = '6pru14UvLOEhi06VmrSebbDCbTnyS6Ry';
     const baseUrl = `https://api.giphy.com/v1/gifs/search?api_key=${API_KEY}`;
 
