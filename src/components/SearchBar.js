@@ -7,6 +7,7 @@ class SearchBar extends Component {
       <div className="searchbar">
         <h2>GifHub</h2>
         <input
+          autoFocus={ true }
           className="searchbox"
           type="text"
           placeholder="Search Giphy"
