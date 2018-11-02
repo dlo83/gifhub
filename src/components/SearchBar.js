@@ -6,9 +6,7 @@ class SearchBar extends Component {
     super(props);
 
     this.inputRef = React.createRef();
-  }
-  componentDidUpdate() {
-    this.inputRef.focus();
+    console.log(this.inputRef);
   }
 
   render() {
@@ -17,7 +15,6 @@ class SearchBar extends Component {
       <div className="searchbar">
         <h2>GifHub</h2>
         <input
-          ref={ this.inputRef }
           autoFocus={ true }
           className="searchbox"
           type="text"
