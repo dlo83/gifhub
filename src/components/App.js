@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import GifGrid from './GifGrid';
 import SearchBar from './SearchBar';
 import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import { Container } from 'semantic-ui-react'
+// import 'react-toastify/dist/ReactToastify.css';
 
 class App extends Component {
   state = {
