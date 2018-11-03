@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import Gif from './Gif';
+import { Container, Image } from 'semantic-ui-react';
 
 class GifGrid extends Component {
   render() {
@@ -8,11 +9,10 @@ class GifGrid extends Component {
 
     if (gifs.length) {
       dom = (
-        <ul className="gif-grid">
-        {
+      <Image.Group size='tiny'>        {
           gifs.map(gif => <Gif gif={gif} onCopySuccess={ onCopySuccess } onCopyFailure={ onCopyFailure } />)
         }
-      </ul>
+      </Image.Group>
       );
     } else {
       dom = (
@@ -21,7 +21,11 @@ class GifGrid extends Component {
         </div>
       )
     }
-    return dom;
+    return (
+      <Container>
+        { dom }
+      </Container>
+    );
   }
 }
 

@@ -2,11 +2,19 @@ import React, { Component } from 'react';
 import GifGrid from './GifGrid';
 import SearchBar from './SearchBar';
 import { ToastContainer, toast } from 'react-toastify';
-import { Container } from 'semantic-ui-react'
+import { Container, Divider } from 'semantic-ui-react'
 // import 'react-toastify/dist/ReactToastify.css';
+
+// const popupStyles = {
+//   minWidth: '900px',
+//   minHeight: '400px',
+//   margin: '0',
+//   padding: '0',
+// }
 
 class App extends Component {
   state = {
+    isLoading: false,
     searchTerm: null,
     gifs: [],
   }
@@ -38,6 +46,7 @@ class App extends Component {
   handleCopyFailure = () => toast('Dang! Could not copy gif to your clipboard');
 
   handleSearchTermUpdate = ({ target: { value }} ) => {
+    console.log(value);
     this.setState({ searchTerm: value });
   }
 
@@ -45,29 +54,33 @@ class App extends Component {
     // Don't worry -- it's public.  Should probably still move to an .env var anyway.
     const API_KEY = '6pru14UvLOEhi06VmrSebbDCbTnyS6Ry';
     const baseUrl = `https://api.giphy.com/v1/gifs/search?api_key=${API_KEY}`;
-
+    this.setState({ isLoading: true })
     fetch(`${baseUrl}&q=${this.state.searchTerm}&limit=25&offset=0&rating=R&lang=en`)
     .then(res => res.json())
     .then(({data : gifs}) => {
-      this.setState({ gifs });
+      this.setState({ gifs, isLoading: false });
     });
   }
 
+
+
   render() {
     return (
-      <div>
+      <React.Fragment>
         <SearchBar
           onChange={ this.handleSearchTermUpdate }
           onSearch={ this.handleSearch }
           value={ this.state.searchTerm }
+          isLoading={ this.state.isLoading }
         />
+        <Divider />
         <GifGrid
           gifs={ this.state.gifs }
           onCopySuccess={ this.handleCopySuccess }
           onCopyFailure={ this.handleCopyFailure }
         />
         <ToastContainer closeButton={ false } />
-      </div>
+      </React.Fragment>
     )
   }
 }

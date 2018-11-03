@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Container, Header, Input, Menu } from 'semantic-ui-react'
 
 class SearchBar extends Component {
 
@@ -10,24 +11,29 @@ class SearchBar extends Component {
   }
 
   render() {
-    const { onChange, onSearch, value } = this.props;
+    const { isLoading, onChange, onSearch, value } = this.props;
     return (
-      <div className="searchbar">
-        <h2>GifHub</h2>
-        <input
-          autoFocus={ true }
-          className="searchbox"
-          type="text"
-          placeholder="Search Giphy"
-          onChange={ onChange }
-          onKeyPress={event => {
-            if (event.key === 'Enter') {
-              onSearch();
-            }
-          }}
-          value={ value}
-        />
-      </div>
+        <Menu borderless>
+          <Menu.Item position='left'>
+            <Header as='h3'>GifHub</Header>
+          </Menu.Item>
+
+          <Menu.Item position='right'>
+            <Input
+            loading={ isLoading }
+            icon={ isLoading ? 'loading' : 'search' }
+            iconPosition='right'
+            placeholder='Search...'
+            onChange={ onChange }
+            onKeyPress={event => {
+              if (event.key === 'Enter') {
+                onSearch();
+              }
+            }}
+            value={ value }
+          />
+        </Menu.Item>
+      </Menu>
     )
   }
 }

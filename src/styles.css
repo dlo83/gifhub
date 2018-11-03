@@ -1,3 +1,7 @@
+#root {
+  min-width: 500px;
+}
+
 /* .popup-container {
   width: 600px;
   min-height: 400px;
