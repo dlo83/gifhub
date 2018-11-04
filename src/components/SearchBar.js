@@ -25,17 +25,17 @@ class SearchBar extends Component {
 
           <Menu.Item position='right'>
             <Input
-            loading={ isLoading }
-            icon={ isLoading ? 'loading' : 'search' }
-            inverted
-            iconPosition='right'
-            placeholder='Search...'
-            onChange={ onChange }
-            onKeyPress={event => {
-              if (event.key === 'Enter') {
-                onSearch();
-              }
-            }}
+              loading={ isLoading }
+              icon={ isLoading ? 'loading' : 'search' }
+              inverted
+              iconPosition='right'
+              placeholder='Search...'
+              onChange={ onChange }
+              onKeyPress={event => {
+                if (event.key === 'Enter') {
+                  onSearch();
+                }
+              }}
             value={ value }
           />
         </Menu.Item>

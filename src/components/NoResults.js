@@ -3,10 +3,6 @@ import PropTypes from 'prop-types'
 import { Container, Header, Icon, Segment } from 'semantic-ui-react'
 
 export default class NoResults extends Component {
-  static propTypes = {
-    prop: PropTypes
-  }
-
   render() {
     return (
       <Container>
