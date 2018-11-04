@@ -25,6 +25,7 @@ class SearchBar extends Component {
 
           <Menu.Item position='right'>
             <Input
+              autoFocus
               loading={ isLoading }
               icon={ isLoading ? 'loading' : 'search' }
               inverted
