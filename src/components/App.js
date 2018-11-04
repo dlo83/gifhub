@@ -2,15 +2,7 @@ import React, { Component } from 'react';
 import GifGrid from './GifGrid';
 import SearchBar from './SearchBar';
 import { ToastContainer, toast } from 'react-toastify';
-import { Container, Divider } from 'semantic-ui-react'
-// import 'react-toastify/dist/ReactToastify.css';
-
-// const popupStyles = {
-//   minWidth: '900px',
-//   minHeight: '400px',
-//   margin: '0',
-//   padding: '0',
-// }
+import { Divider } from 'semantic-ui-react'
 
 class App extends Component {
   state = {
@@ -52,6 +44,7 @@ class App extends Component {
 
   handleSearch = () => {
     // Don't worry -- it's public.  Should probably still move to an .env var anyway.
+    this.setState({ gifs: []});
     const API_KEY = '6pru14UvLOEhi06VmrSebbDCbTnyS6Ry';
     const baseUrl = `https://api.giphy.com/v1/gifs/search?api_key=${API_KEY}`;
     this.setState({ isLoading: true })
@@ -62,8 +55,6 @@ class App extends Component {
     });
   }
 
-
-
   render() {
     return (
       <React.Fragment>
@@ -73,7 +64,7 @@ class App extends Component {
           value={ this.state.searchTerm }
           isLoading={ this.state.isLoading }
         />
-        <Divider />
+        <Divider hidden />
         <GifGrid
           gifs={ this.state.gifs }
           onCopySuccess={ this.handleCopySuccess }

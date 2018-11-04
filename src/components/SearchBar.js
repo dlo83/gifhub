@@ -1,6 +1,10 @@
 import React, { Component } from 'react';
 import { Container, Header, Input, Menu } from 'semantic-ui-react'
 
+const menuStyle = {
+  border: 'none'
+};
+
 class SearchBar extends Component {
 
   constructor(props) {
@@ -10,18 +14,20 @@ class SearchBar extends Component {
     console.log(this.inputRef);
   }
 
+
   render() {
     const { isLoading, onChange, onSearch, value } = this.props;
     return (
-        <Menu borderless>
+        <Menu borderless inverted attached={'top'} style={menuStyle}>
           <Menu.Item position='left'>
-            <Header as='h3'>GifHub</Header>
+            <Header as='h3' inverted>GifHub</Header>
           </Menu.Item>
 
           <Menu.Item position='right'>
             <Input
             loading={ isLoading }
             icon={ isLoading ? 'loading' : 'search' }
+            inverted
             iconPosition='right'
             placeholder='Search...'
             onChange={ onChange }

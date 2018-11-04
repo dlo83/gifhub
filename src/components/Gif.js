@@ -1,6 +1,13 @@
 import React, { Component } from 'react';
 import { Image } from 'semantic-ui-react';
 
+const imageStyle = {
+  cursor: 'pointer',
+  objectFit: 'cover',
+  height: '80px',
+  width: '80px'
+};
+
 export default class Gif extends Component {
 
   handleImageSelect = (ev) => {
@@ -16,7 +23,13 @@ export default class Gif extends Component {
   render() {
     const { gif } = this.props;
     return (
-      <Image src={ gif.images.fixed_width.url } onClick={ this.handleImageSelect } />
+      <Image
+        fluid
+        bordered
+        src={ gif.images.fixed_width.url }
+        style={ imageStyle }
+        onClick={ this.handleImageSelect }
+      />
     )
   }
 }
