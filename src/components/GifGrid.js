@@ -5,7 +5,7 @@ import NoResults from './NoResults';
 
 class GifGrid extends Component {
   render() {
-    const { gifs, onCopySuccess, onCopyFailure } = this.props;
+    const { gifs, imageSize, onCopySuccess, onCopyFailure } = this.props;
 
     if (!gifs.length) return <NoResults />
 
@@ -16,6 +16,7 @@ class GifGrid extends Component {
             .map(gif =>
               <Gif
                   gif={gif}
+                  imageSize={ imageSize }
                   onCopySuccess={ onCopySuccess }
                   onCopyFailure={ onCopyFailure }
               />

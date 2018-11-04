@@ -7,6 +7,7 @@ import { Divider } from 'semantic-ui-react'
 class App extends Component {
   state = {
     isLoading: false,
+    imageSize: 'downsized',
     searchTerm: null,
     gifs: [],
   }
@@ -37,6 +38,8 @@ class App extends Component {
 
   handleCopyFailure = () => toast('Dang! Could not copy gif to your clipboard');
 
+  handleImageSizeChange = (ev, {value}) => this.setState({imageSize: value});
+
   handleSearchTermUpdate = ({ target: { value }} ) => {
     console.log(value);
     this.setState({ searchTerm: value });
@@ -60,6 +63,7 @@ class App extends Component {
       <React.Fragment>
         <SearchBar
           onChange={ this.handleSearchTermUpdate }
+          onSizeChange={ this.handleImageSizeChange }
           onSearch={ this.handleSearch }
           value={ this.state.searchTerm }
           isLoading={ this.state.isLoading }
@@ -67,6 +71,7 @@ class App extends Component {
         <Divider hidden />
         <GifGrid
           gifs={ this.state.gifs }
+          imageSize={ this.state.imageSize }
           onCopySuccess={ this.handleCopySuccess }
           onCopyFailure={ this.handleCopyFailure }
         />

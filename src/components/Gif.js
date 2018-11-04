@@ -21,12 +21,12 @@ export default class Gif extends Component {
   }
 
   render() {
-    const { gif } = this.props;
+    const { gif, imageSize } = this.props;
     return (
       <Image
         fluid
         bordered
-        src={ gif.images.preview.url }
+        src={ gif.images[imageSize].url }
         style={ imageStyle }
         onClick={ this.handleImageSelect }
       />
