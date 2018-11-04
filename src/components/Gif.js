@@ -26,7 +26,7 @@ export default class Gif extends Component {
       <Image
         fluid
         bordered
-        src={ gif.images.fixed_width.url }
+        src={ gif.images.preview.url }
         style={ imageStyle }
         onClick={ this.handleImageSelect }
       />
