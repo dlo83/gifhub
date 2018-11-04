@@ -1,5 +1,14 @@
-import React, { Component } from 'react'
-class Gif extends Component {
+import React, { Component } from 'react';
+import { Image } from 'semantic-ui-react';
+
+const imageStyle = {
+  cursor: 'pointer',
+  objectFit: 'cover',
+  height: '80px',
+  width: '80px'
+};
+
+export default class Gif extends Component {
 
   handleImageSelect = (ev) => {
     console.log(ev.target.src);
@@ -14,11 +23,13 @@ class Gif extends Component {
   render() {
     const { gif } = this.props;
     return (
-      <li className="gif-container">
-        <img src={ gif.images.fixed_width.url } className="gif" onClick={ this.handleImageSelect } />
-      </li>
+      <Image
+        fluid
+        bordered
+        src={ gif.images.fixed_width.url }
+        style={ imageStyle }
+        onClick={ this.handleImageSelect }
+      />
     )
   }
 }
-
-export default Gif;
