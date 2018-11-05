@@ -28,7 +28,7 @@ export default class Gif extends Component {
         trigger={ <Image
           fluid
           bordered
-          src={ gif.images.preview_gif.url }
+          src={ gif.images[imageSize].url }
           style={ imageStyle }
           onClick={ this.handleImageSelect }
         /> }
