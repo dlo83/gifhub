@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { Container, Header, Input, Menu } from 'semantic-ui-react'
+import { Dropdown, Header, Input, Menu } from 'semantic-ui-react'
+import { sizeOptions } from './Common';
 
 const menuStyle = {
   border: 'none'
@@ -16,12 +17,22 @@ class SearchBar extends Component {
 
 
   render() {
-    const { isLoading, onChange, onSearch, value } = this.props;
+    const { isLoading, onChange, onSearch, onSizeChange, value } = this.props;
     return (
         <Menu borderless inverted attached={'top'} style={menuStyle}>
           <Menu.Item position='left'>
             <Header as='h3' inverted>GifHub</Header>
           </Menu.Item>
+
+          {/* <Menu.Item>
+          <Dropdown
+            placeholder='Image Size'
+            fluid
+            selection
+            onChange={ onSizeChange }
+            options={sizeOptions}
+          />
+          </Menu.Item> */}
 
           <Menu.Item position='right'>
             <Input

@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "dev": "parcel ./src/popup.html",
     "build": "rm -rf dist/ && parcel build src/popup.js -d dist/ -o popup.js && cp src/popup.html dist/popup.html && cp src/manifest.json dist/manifest.json && cp src/background.js dist/background.js && cp src/styles.css dist/styles.css",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
