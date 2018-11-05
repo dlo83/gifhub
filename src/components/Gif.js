@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Image } from 'semantic-ui-react';
+import { Image, Popup } from 'semantic-ui-react';
 
 const imageStyle = {
   cursor: 'pointer',
@@ -21,15 +21,25 @@ export default class Gif extends Component {
   }
 
   render() {
-    const { gif } = this.props;
+    const { gif, imageSize } = this.props;
     return (
-      <Image
-        fluid
-        bordered
-        src={ gif.images.fixed_width.url }
-        style={ imageStyle }
-        onClick={ this.handleImageSelect }
+      <Popup
+        position='bottom center'
+        trigger={ <Image
+          fluid
+          bordered
+          src={ gif.images.preview_gif.url }
+          style={ imageStyle }
+          onClick={ this.handleImageSelect }
+        /> }
+        content={ <Image
+          fluid
+          bordered
+          src={ gif.images[imageSize].url }
+        /> }
+        on='hover'
       />
+
     )
   }
 }
