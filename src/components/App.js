@@ -3,6 +3,7 @@ import GifGrid from './GifGrid';
 import SearchBar from './SearchBar';
 import { ToastContainer, toast } from 'react-toastify';
 import { Divider } from 'semantic-ui-react'
+import { search } from './Api';
 
 class App extends Component {
   state = {
@@ -18,16 +19,16 @@ class App extends Component {
 
   requestClipboardPermission = () => {
     navigator.permissions.query({name:'clipboard-write'}).then(function(result) {
-      if (result.state == 'granted') {
-        console.log(result.state);
-      } else if (result.state == 'prompt') {
-        console.log(result.state);
-      } else if (result.state == 'denied') {
-        console.log(result.state);
-      }
-      result.onchange = function() {
-        console.log(result.state);
-      }
+      // if (result.state == 'granted') {
+      //   console.log(result.state);
+      // } else if (result.state == 'prompt') {
+      //   console.log(result.state);
+      // } else if (result.state == 'denied') {
+      //   console.log(result.state);
+      // }
+      // result.onchange = function() {
+      //   console.log(result.state);
+      // }
     });
   }
 
@@ -40,22 +41,18 @@ class App extends Component {
 
   handleImageSizeChange = (ev, {value}) => this.setState({imageSize: value});
 
-  handleSearchTermUpdate = ({ target: { value }} ) => {
-    console.log(value);
-    this.setState({ searchTerm: value });
-  }
+  handleSearchTermUpdate = ({ target: { value }} ) => this.setState({ searchTerm: value });
 
-  handleSearch = () => {
-    // Don't worry -- it's public.  Should probably still move to an .env var anyway.
-    this.setState({ gifs: []});
-    const API_KEY = '6pru14UvLOEhi06VmrSebbDCbTnyS6Ry';
-    const baseUrl = `https://api.giphy.com/v1/gifs/search?api_key=${ API_KEY }`;
-    this.setState({ isLoading: true })
-    fetch(`${baseUrl}&q=${ this.state.searchTerm }&limit=25&offset=0&rating=R&lang=en`)
-    .then(res => res.json())
-    .then(({data : gifs}) => {
-      this.setState({ gifs, isLoading: false });
+  handleSearch = async () => {
+    this.setState({ gifs: [], isLoading: true });
+
+    const { data: gifs } = await search({
+      query: this.state.searchTerm,
+      limit: '25',
+      rating: 'R'
     });
+
+    this.setState({ gifs, isLoading: false });
   }
 
   render() {

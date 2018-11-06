@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Image, Popup } from 'semantic-ui-react';
-
+import './Gif.scss';
 const imageStyle = {
   cursor: 'pointer',
   objectFit: 'cover',
