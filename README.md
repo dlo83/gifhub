@@ -1,5 +1,8 @@
 # GifHub Chrome Extension
 
+
+## NOTE: This extension appears to be broken in recent versions of Chrome.  Use at your own risk
+
 Markdown-friendly gifs for all.
 
 ![Gif](https://media3.giphy.com/media/hZj44bR9FVI3K/200w.gif)
